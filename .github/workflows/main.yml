@@ -30,7 +30,7 @@ jobs:
           context: ./frontend
           file: ./frontend/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/frontend:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/frontend:latest, ${{ secrets.DOCKER_HUB_USERNAME }}/frontend:${{ github.sha }}
   
   build-backend:
     runs-on: ubuntu-latest
@@ -56,4 +56,4 @@ jobs:
           context: ./backend
           file: ./backend/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/backend:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/backend:latest, ${{ secrets.DOCKER_HUB_USERNAME }}/backend:${{ github.sha }}
